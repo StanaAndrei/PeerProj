@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.widget.LinearLayout
 import android.widget.SeekBar
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.DialogFragment
 
 class MainActivity : AppCompatActivity() {
     private var appLayouts: MutableList<LinearLayout> = ArrayList()
@@ -69,7 +70,9 @@ class MainActivity : AppCompatActivity() {
         val id: Int = item.itemId
 
         if (id == R.id.action_more_information) {
-            Log.e("asd", "click")
+            val dialFrag: DialogFragment = MoreInfoDialogFragment()
+            dialFrag.show(supportFragmentManager, "more-info")
+            return true
         }
 
         return super.onOptionsItemSelected(item)
