@@ -59,8 +59,8 @@
 
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="408dp"
-        android:layout_height="44dp"
+        android:layout_width="409dp"
+        android:layout_height="72dp"
         app:flow_verticalAlign="bottom"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout9"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout8"

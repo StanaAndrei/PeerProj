@@ -7,9 +7,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.SeekBar
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet.Layout
 import androidx.fragment.app.DialogFragment
 
 class MainActivity : AppCompatActivity() {
@@ -26,12 +29,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun getAllLinearLayouts() {
-        val cl: ConstraintLayout = findViewById(R.id.constraint_layout)
+    fun getAllLayouts(layoutId: Int) {
+        var cl: ViewGroup? = findViewById(layoutId) ?: return
 
-        for (i in 0..cl.childCount) {
+        for (i in 0..cl!!.childCount) {
             val child = cl.getChildAt(i)
             if (child is LinearLayout) {
+                getAllLayouts(child.id)
                 appLayouts.add(child)
             }
         }
@@ -47,9 +51,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        getAllLinearLayouts()
+        getAllLayouts(R.id.constraint_layout)
         getAllCols()
-        Log.e("asd", appLayouts.size.toString())
+        Log.e("ads", "qwerty")
 
         val seekBar: SeekBar = findViewById(R.id.seekBar);
         seekBar.setOnSeekBarChangeListener(object :SeekBar.OnSeekBarChangeListener{
