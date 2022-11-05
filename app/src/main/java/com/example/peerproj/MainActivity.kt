@@ -30,10 +30,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun getAllLayouts(layoutId: Int) {
-        var cl: ViewGroup? = findViewById(layoutId) ?: return
+        val currViewGroup: ViewGroup? = findViewById(layoutId) ?: return
 
-        for (i in 0..cl!!.childCount) {
-            val child = cl.getChildAt(i)
+        for (i in 0..currViewGroup!!.childCount) {
+            val child = currViewGroup.getChildAt(i)
             if (child is LinearLayout) {
                 getAllLayouts(child.id)
                 appLayouts.add(child)
