@@ -53,7 +53,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         getAllLayouts(R.id.constraint_layout)
         getAllCols()
-        Log.e("ads", "qwerty")
 
         val seekBar: SeekBar = findViewById(R.id.seekBar);
         seekBar.setOnSeekBarChangeListener(object :SeekBar.OnSeekBarChangeListener{
